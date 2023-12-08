@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Sending App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-center fs-3">Email Sending App</p>
+
+                        <!-- Display session attribute -->
+                        <p th:if="${session.msg}" class="alert alert-success" th:text="${session.msg}"></p>
+
+                        <form th:action="@{/sendMail}" method="post">
+                            <div class="mb-3">
+                                <label for="to">Enter email id to</label>
+                                <input type="text" name="to" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="subject">Subject</label>
+                                <input type="text" name="subject" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message">Message</label>
+                                <textarea rows="5" class="form-control" name="message"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary col-md-12">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
